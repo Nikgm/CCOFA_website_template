@@ -1,0 +1,243 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+
+main {
+  flex: 1;
+  min-width: 600px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+
+
+/* HEADER */
+.header {
+    background: #001f3f; /* Navy blue */
+    color: #fff;
+    padding: 0 2rem;
+    height: 100px;        /* fixed height */
+    position: relative;   /* so the logo can be absolutely positioned */
+    display: flex;
+    align-items: center;
+    z-index: 50;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* ✅ align items to the left */
+    width: 100%;
+    height: 100%;
+}
+
+
+/* LOGO – overhangs below the header */
+.header-logo {
+    position: absolute;
+    left: 2rem;          /* adjust horizontally as needed */
+    bottom: -45px;       /* how much it overhangs below the header */
+    height: 140px;       /* logo size (independent of header height) */
+    z-index: 100;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
+}
+
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 180px; /* ✅ space for the logo */
+    padding: 0;
+}
+
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    position: relative; /* REQUIRED for underline animation */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0;
+    height: 100%; /* helps flex alignment */
+}
+
+
+/* Underline effect container */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;                 /* start hidden */
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.2s ease-in-out; /* animation */
+}
+
+/* Hover — grow underline left → right */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* CAROUSEL */
+.carousel {
+  margin-top: 0;
+}
+
+.carousel-viewport {
+  position: relative;
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  user-select: none;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+/* EDGE HOVER AREAS */
+.carousel-edge {
+  position: absolute;
+  top: 0;
+  width: 12%;
+  height: 100%;
+  border: none;
+  background: none;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  color: white;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-edge.left {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: 20px;
+  background: linear-gradient(to right, rgba(0,0,0,0.45), transparent);
+}
+
+.carousel-edge.right {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: 20px;
+  background: linear-gradient(to left, rgba(0,0,0,0.45), transparent);
+}
+
+/* Show arrows when hovering near edges */
+.carousel-viewport:hover .carousel-edge {
+  opacity: 1;
+}
+
+/* Arrow hover emphasis */
+.carousel-edge:hover {
+  background-size: 100% 100%;
+}
+
+/* MEET THE COMMITTEE SECTION */
+
+.committee {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 2rem;
+}
+
+.committee-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #001f3f;
+}
+
+.committee-content {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.committee-image img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.committee-list ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.committee-list li {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.committee-list strong {
+  color: #001f3f;
+}
+
+/* Description text */
+.committee-description p {
+  max-width: 900px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .committee-content {
+    flex-direction: column;
+  }
+
+  .committee-image img {
+    max-width: 100%;
+  }
+}
+
+/* FOOTER */
+
+.footer {
+  background: #001f3f;
+  color: #ffffff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
