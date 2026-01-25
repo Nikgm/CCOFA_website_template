@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events | Cultural Center Of Florinians, O Aristotelis</title>
+
+  <!-- Styles & Scripts -->
+  <link rel="stylesheet" href="style.css?v=1.1">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ================= HEADER / NAV ================= -->
+  <header class="header">
+    <nav class="navbar">
+
+      <!-- Hamburger (mobile only) -->
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Open menu"
+        aria-controls="mobileNav"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <!-- Logo -->
+      <img src="logo.png" alt="CCOFA Logo" class="header-logo">
+
+      <!-- Desktop links -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="apply.html">Apply!</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+
+      <!-- Mobile overlay -->
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <div
+          class="mobile-nav-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
+        >
+          <button class="nav-close" id="navClose" aria-label="Close menu">✕</button>
+
+          <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="apply.html">Apply!</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main>
+    <section class="page-content">
+      <h1 class="page-title">Events</h1>
+    
+      <div>
+        <b><u>Come see our Dance Group Perform</u></b>
+        <p>Sunday, February 1st, 2026 - St. Vasilios Festival, Brunswick</p>
+        <p>Inters / Seniors @ 2:30 PM</p><hr>
+        <p>Sunday, February 15th, 2026 - St. Haralambos Festival, Templestowe</p>
+        <p>Inters @ 2:30 PM</p><hr>
+        <p>Saturday & Sunday, February 28th & March 1st, 2026 - Antipodes Festival, Lonsdale St.</p>
+        <p>Saturday, Inters @ 5:55 PM / Seniors @ 6:10 PM</p><hr>
+      </div>
+      <div>
+        <b><u>Events We're Hosting</u></b><br>
+        <p>More info coming soon!</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>&copy; <span id="year">Est. 1956</span> Cultural Center. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

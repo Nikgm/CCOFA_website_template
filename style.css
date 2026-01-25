@@ -1,0 +1,438 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+
+
+
+/* HEADER */
+.header {
+  background: #001f3f;
+  color: #fff;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  z-index: 50;
+}
+
+/* NAVBAR */
+.navbar {
+  position: relative;    
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* LOGO – overhangs below the header */
+.header-logo {
+  position: absolute;
+  left: 40px;                
+  bottom: -45px;
+  height: 140px;
+  z-index: 100;
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
+}
+
+
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: 180px; /* ✅ space for the logo */
+    padding: 0;
+}
+
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    position: relative; /* REQUIRED for underline animation */
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0;
+    height: 100%; /* helps flex alignment */
+}
+
+
+/* Underline effect container */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;                 /* start hidden */
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.2s ease-in-out; /* animation */
+}
+
+/* Hover — grow underline left → right */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* CAROUSEL */
+.carousel {
+  max-width: 1440px;
+  margin: 0 auto; /* ✅ center the carousel block */
+}
+
+
+.carousel-viewport {
+  position: relative;
+  width: 100%;
+  max-height: 420px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  user-select: none;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* EDGE HOVER AREAS */
+.carousel-edge {
+  position: absolute;
+  top: 0;
+  width: 12%;
+  height: 100%;
+  border: none;
+  background: none;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  color: white;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-edge.left {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: 20px;
+  background: linear-gradient(to right, rgba(0,0,0,0.45), transparent);
+}
+
+.carousel-edge.right {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: 20px;
+  background: linear-gradient(to left, rgba(0,0,0,0.45), transparent);
+}
+
+/* Show arrows when hovering near edges */
+.carousel-viewport:hover .carousel-edge {
+  opacity: 1;
+}
+
+/* Arrow hover emphasis */
+.carousel-edge:hover {
+  background-size: 100% 100%;
+}
+
+/* Mobile hamburger button (hidden by default) */
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Mobile overlay (hidden by default) */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.90);
+  display: none;
+  z-index: 9999;
+}
+
+.mobile-nav-panel {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-close {
+  align-self: flex-end;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  color: #001f3f;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 2rem 0 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-nav-links a {
+  color: #001f3f;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+/* Open state */
+.mobile-nav.open {
+  display: block;
+}
+
+/* ===== Responsive switch: <768px ===== */
+@media (max-width: 767px) {
+  /* hide desktop links */
+  .nav-links {
+    display: none;
+  }
+
+  /* show hamburger */
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* center the logo within the navbar container */
+  .header-logo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+    .carousel-edge {
+    opacity: 1;              /* ✅ always visible */
+  }
+
+  .carousel-edge.left {
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,0.45),
+      transparent
+    );
+  }
+
+  .carousel-edge.right {
+    background: linear-gradient(
+      to left,
+      rgba(0,0,0,0.45),
+      transparent
+    );
+  }
+}
+
+/* >=768px: ensure desktop logo positioning stays normal */
+@media (min-width: 768px) {
+  .header-logo {
+    transform: none;
+  }
+}
+
+
+/* MEET THE COMMITTEE SECTION */
+
+.committee {
+  max-width: 1440px;
+  margin: 40px auto 80px auto; 
+  padding: 0 2rem;
+}
+
+
+.committee-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #001f3f;
+}
+
+.committee-content {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.committee-image img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.committee-list ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.committee-list li {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.committee-list strong {
+  color: #001f3f;
+}
+
+/* Description text */
+.committee-description p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .committee-content {
+    flex-direction: column;
+  }
+
+  .committee-image img {
+    max-width: 100%;
+  }
+}
+
+.page-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+
+.page-title {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #001f3f;
+  text-align: left; /* force left alignment */
+}
+
+/* NEWSLETTER PAGE LAYOUT */
+.newsletter-layout {
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.newsletter-sidebar {
+  width: 280px;
+  flex: 0 0 280px;
+}
+
+.newsletter-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.newsletter-sidebar li {
+  margin-bottom: 0.85rem;
+}
+
+.newsletter-sidebar a {
+  text-decoration: none;
+  color: rgba(0, 31, 63, 0.65); /* lighter text */
+  font-size: 1.05rem;
+}
+
+.newsletter-sidebar a:hover {
+  text-decoration: underline;
+}
+
+.newsletter-sidebar a.current {
+  color: #001f3f;
+  font-weight: 700;
+}
+
+.newsletter-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.newsletter-date-title {
+  font-weight: 700;
+  color: #001f3f;
+  margin: 0 0 1.25rem 0;
+  font-size: 1.6rem;
+}
+
+.newsletter-content p {
+  line-height: 1.7;
+  color: #333;
+  margin: 0 0 1rem 0;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 767px) {
+  .newsletter-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .newsletter-sidebar {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
+
+
+/* FOOTER */
+
+.footer {
+  background: #001f3f;
+  color: #ffffff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
