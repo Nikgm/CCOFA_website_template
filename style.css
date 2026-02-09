@@ -45,8 +45,8 @@ main {
 .header-logo {
   position: absolute;
   left: 40px;                
-  bottom: -45px;
-  height: 140px;
+  bottom: -55px;
+  height: 170px;
   z-index: 100;
   filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
 }
