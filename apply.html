@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply | Cultural Centre Of Florinians, O Aristotelis</title>
+  <title>Our Services | Cultural Centre Of Florinians, O Aristotelis</title>
 
   <!-- Styles & Scripts -->
   <link rel="stylesheet" href="style.css?v=1.1">
@@ -36,7 +36,16 @@
         <li><a href="history.html">History</a></li>
         <li><a href="newsletter.html">Newsletter</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="apply.html">Apply!</a></li>
+        <li class="nav-dropdown">
+          <div class="nav-dropdown-trigger">
+            <a class="nav-dropdown-link" href="apply.html">Our Services</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
+          </div>
+          <ul class="nav-dropdown-menu">
+            <li><a href="apply.html#dance-group">Dance Group</a></li>
+            <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+          </ul>
+        </li>
         <li><a href="gallery.html">Gallery</a></li>
       </ul>
 
@@ -55,7 +64,16 @@
             <li><a href="history.html">History</a></li>
             <li><a href="newsletter.html">Newsletter</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="apply.html">Apply!</a></li>
+            <li class="mobile-nav-dropdown">
+              <div class="mobile-nav-dropdown-header">
+                <a class="mobile-nav-dropdown-link" href="apply.html">Our Services</a>
+                <button class="mobile-nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
+              </div>
+              <ul class="mobile-nav-submenu">
+                <li><a href="apply.html#dance-group">Dance Group</a></li>
+                <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+              </ul>
+            </li>
             <li><a href="gallery.html">Gallery</a></li>
           </ul>
         </div>
@@ -66,16 +84,97 @@
 
   <!-- ================= MAIN CONTENT ================= -->
   <main>
-    <section class="page-content">
-      <h1 class="page-title">Apply</h1>
-      <b>Seniors' Club</b><br>
-      <b>Dance Group</b>
-      <h2>Elderly's Club</h2>
-      <p>Please fill out the PDF and send it to us either:</p>
-      <li>
-        <ul>Digitally by emailing <b>TCCOFA@gmail.com</b></ul>
-        <ul>Traditional mail to: </uL>
-      </li>
+    <section class="page-content services-page">
+      <h1 class="page-title">Our Services</h1>
+
+      <div class="services-body">
+        <h2 id="dance-group">Dance Group</h2>
+        <p>
+          Our dance group is the vibrant heartbeat of our Cultural Centre and we conduct a range
+          of lessons, catering to all age groups and abilities in a supporting and welcoming
+          environment.
+        </p>
+
+        <h3>Instructors and Co-ordinator</h3>
+        <ul class="services-people-list">
+          <li><strong>Epiphany and Andrea</strong><span>Junior Group Instructors</span></li>
+          <li><strong>Tim and Zoe</strong><span>Intermediate Group Instructors</span></li>
+          <li><strong>George</strong><span>Senior Group Instructor</span></li>
+          <li><strong>Nicole</strong><span>Dance Performance Co-ordinator</span></li>
+        </ul>
+
+        <h3>Location &amp; Times</h3>
+        <div class="services-location">
+          <p>Nick Ascenzo Centre</p>
+          <p>2 Boronia Street</p>
+          <p>Thomastown VIC 3074</p>
+        </div>
+
+        <div class="services-schedule">
+          <div class="services-schedule-group">
+            <h4>Thursday Rehearsals</h4>
+            <ul>
+              <li><strong>Junior Group (5-10 years):</strong> 5:30pm - 6:30pm</li>
+              <li><strong>Intermediate / Pre-Senior Group:</strong> 6:30pm - 7:30pm</li>
+              <li><strong>Senior Performing Group:</strong> 7:30pm onwards</li>
+            </ul>
+          </div>
+
+          <div class="services-schedule-group">
+            <h4>Monday Rehearsals</h4>
+            <ul>
+              <li><strong>Senior Non-Performing / Veterans Group:</strong> 7:30pm - 8:30pm</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>
+          No prior experience is required. We actively welcome participants of all abilities,
+          backgrounds and experience levels.
+        </p>
+        <p>
+          Throughout the year, our performing groups proudly represent Aristotelis at festivals,
+          multicultural celebrations and community events across Melbourne.
+        </p>
+
+        <hr class="services-divider">
+
+        <h2 id="senior-citizens-club">Senior Citizens Club</h2>
+        <p>
+          Our Senior Citizens Club provides a culturally familiar and socially supportive space
+          for older Florinians to gather and connect.
+        </p>
+
+        <h3>When &amp; Where</h3>
+        <div class="services-location">
+          <p><strong>When:</strong> Thursday, 9:00am - 1:00pm</p>
+          <p><strong>Where:</strong> Plenty Valley Lions FC</p>
+          <p>2W Robinvale Avenue, Thomastown VIC</p>
+        </div>
+
+        <p>
+          Mornings include tea, conversation, storytelling and companionship. These gatherings
+          reduce isolation, strengthen wellbeing and preserve oral history and language.
+        </p>
+
+        <h3>Why Join Us?</h3>
+        <p>Membership means becoming part of a 70-year legacy.</p>
+        <p>By joining, you:</p>
+        <ul class="services-benefits-list">
+          <li>Connect with a proud and welcoming cultural community</li>
+          <li>Provide children with opportunities to learn and lead</li>
+          <li>Support seniors and intergenerational initiatives</li>
+          <li>Help sustain cultural programs for future generations</li>
+          <li>Contribute to shaping Aristotelis' future direction</li>
+          <li>Priority invitations to club events and celebrations</li>
+          <li>Special offers on products or services from our major sponsors</li>
+        </ul>
+
+        <p>
+          For further information about our membership, please contact
+          <strong>info.ccofa@gmail.com</strong>
+        </p>
+      </div>
     </section>
   </main>
 

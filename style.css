@@ -1,9 +1,9 @@
 html, body {
-  height: 100%;
   margin: 0;
 }
 
 body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: 'Inter', sans-serif;
@@ -18,17 +18,18 @@ main {
 
 
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
   background: #001f3f;
   color: #fff;
   height: 100px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   z-index: 50;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar {
   position: relative;    
   display: flex;
@@ -41,25 +42,25 @@ main {
   width: 100%;
 }
 
-/* LOGO – overhangs below the header */
+/* Logo overhangs below the header */
 .header-logo {
   position: absolute;
   left: 40px;                
-  bottom: -55px;
-  height: 170px;
+  bottom: -45px;
+  height: 140px;
   z-index: 100;
   filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
 }
 
 
 
-/* NAV LINKS */
+/* ================= NAV LINKS ================= */
 .nav-links {
     list-style: none;
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    margin-left: 180px; /* ✅ space for the logo */
+    margin-left: 180px; /* Space for the logo */
     padding: 0;
 }
 
@@ -67,12 +68,95 @@ main {
 .nav-links a {
     display: flex;
     align-items: center;
-    position: relative; /* REQUIRED for underline animation */
+    position: relative; /* Required for underline animation */
     color: #fff;
     text-decoration: none;
     font-size: 1.1rem;
     padding: 0;
-    height: 100%; /* helps flex alignment */
+    height: 100%; /* Helps flex alignment */
+}
+
+.nav-links > li {
+    position: relative;
+}
+
+.nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.nav-dropdown-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-dropdown-toggle::after {
+    content: "\25BE";
+    font-size: 0.75rem;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.8rem);
+    left: 0;
+    min-width: 220px;
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(0, 31, 63, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 200;
+}
+
+.nav-dropdown.open .nav-dropdown-menu,
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu li {
+    margin: 0;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    height: auto;
+    padding: 0.7rem 1rem;
+    color: #001f3f;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.nav-dropdown-menu a::after {
+    display: none;
+}
+
+.nav-dropdown-menu a:hover {
+    background: rgba(0, 31, 63, 0.06);
 }
 
 
@@ -82,21 +166,21 @@ main {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 0%;                 /* start hidden */
+    width: 0%;                 /* Start hidden */
     height: 2px;
     background: #ffffff;
-    transition: width 0.2s ease-in-out; /* animation */
+    transition: width 0.2s ease-in-out; /* Underline animation */
 }
 
-/* Hover — grow underline left → right */
+/* Grow underline left to right on hover */
 .nav-links a:hover::after {
     width: 100%;
 }
 
-/* CAROUSEL */
+/* ================= CAROUSEL ================= */
 .carousel {
   max-width: 1440px;
-  margin: 0 auto; /* ✅ center the carousel block */
+  margin: 0 auto; /* Center the carousel block */
 }
 
 
@@ -125,7 +209,7 @@ main {
   display: block;
 }
 
-/* EDGE HOVER AREAS */
+/* Carousel edge hover areas */
 .carousel-edge {
   position: absolute;
   top: 0;
@@ -157,15 +241,17 @@ main {
   background: linear-gradient(to left, rgba(0,0,0,0.45), transparent);
 }
 
-/* Show arrows when hovering near edges */
+/* Show arrows when hovering near carousel edges */
 .carousel-viewport:hover .carousel-edge {
   opacity: 1;
 }
 
-/* Arrow hover emphasis */
+/* Emphasize arrow on hover */
 .carousel-edge:hover {
   background-size: 100% 100%;
 }
+
+/* ================= MOBILE NAV ================= */
 
 /* Mobile hamburger button (hidden by default) */
 .nav-toggle {
@@ -223,32 +309,83 @@ main {
   font-size: 1.5rem;
 }
 
-/* Open state */
+.mobile-nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: #001f3f;
+  font-family: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-nav-dropdown-toggle::after {
+  content: "+";
+  font-size: 1.25rem;
+}
+
+.mobile-nav-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mobile-nav-dropdown-link {
+  color: #001f3f;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.mobile-nav-dropdown.open .mobile-nav-dropdown-toggle::after {
+  content: "-";
+}
+
+.mobile-nav-submenu {
+  list-style: none;
+  margin: 0.75rem 0 0 0;
+  padding: 0 0 0 1rem;
+  display: none;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.mobile-nav-dropdown.open .mobile-nav-submenu {
+  display: flex;
+}
+
+.mobile-nav-submenu a {
+  font-size: 1.2rem;
+}
+
+/* Open state for mobile overlay */
 .mobile-nav.open {
   display: block;
 }
 
-/* ===== Responsive switch: <768px ===== */
+/* ================= RESPONSIVE: MOBILE (<768px) ================= */
 @media (max-width: 767px) {
-  /* hide desktop links */
+  /* Hide desktop links */
   .nav-links {
     display: none;
   }
 
-  /* show hamburger */
+  /* Show hamburger */
   .nav-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
-  /* center the logo within the navbar container */
+  /* Center the logo within the navbar container */
   .header-logo {
     left: 50%;
     transform: translateX(-50%);
   }
     .carousel-edge {
-    opacity: 1;              /* ✅ always visible */
+    opacity: 1;              /* Always visible on mobile */
   }
 
   .carousel-edge.left {
@@ -268,7 +405,8 @@ main {
   }
 }
 
-/* >=768px: ensure desktop logo positioning stays normal */
+/* ================= RESPONSIVE: DESKTOP (>=768px) ================= */
+/* Reset centered logo transform on desktop */
 @media (min-width: 768px) {
   .header-logo {
     transform: none;
@@ -276,7 +414,111 @@ main {
 }
 
 
-/* MEET THE COMMITTEE SECTION */
+
+
+/* ================= PRESIDENT MESSAGE ================= */
+.president-message {
+  max-width: 1440px;
+  margin: 56px auto 24px auto;
+  padding: 0 2rem;
+}
+
+.president-message-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: #ffffff;
+  border-left: 6px solid #001f3f;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0, 31, 63, 0.12);
+}
+
+.president-eyebrow {
+  margin: 0 0 0.75rem 0;
+  color: rgba(0, 31, 63, 0.72);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.president-message h1 {
+  margin: 0 0 1.5rem 0;
+  color: #001f3f;
+  font-size: clamp(1.6rem, 2.8vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.president-message-body p {
+  margin: 0 0 1.15rem 0;
+  color: #333;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.president-message-body p:first-child::first-letter {
+  color: #001f3f;
+  float: left;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 0.9;
+  padding: 0.15rem 0.35rem 0 0;
+}
+
+.president-signature {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 31, 63, 0.18);
+  color: #333;
+}
+
+.president-signature p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+.president-name {
+  color: #001f3f;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .president-message {
+    margin-top: 40px;
+    padding: 0 1rem;
+  }
+
+  .president-message-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .president-message-body p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+/* ================= ABOUT US ================= */
+.about-us {
+  max-width: 1440px;
+  margin: 40px auto 80px auto;
+  padding: 0 2rem;
+}
+
+.about-us-body p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+@media (max-width: 767px) {
+  .about-us {
+    padding: 0 1rem;
+  }
+}
+
+/* ================= OUR LEADERSHIP ================= */
 
 .committee {
   max-width: 1440px;
@@ -287,8 +529,16 @@ main {
 
 .committee-title {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: #001f3f;
+}
+
+.committee-intro {
+  margin: 0 0 2rem 0;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 900px;
 }
 
 .committee-content {
@@ -306,6 +556,13 @@ main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
+.committee-list-title {
+  font-size: 1.25rem;
+  color: #001f3f;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
 .committee-list ul {
   list-style: disc;
   padding-left: 1.2rem;
@@ -321,14 +578,7 @@ main {
   color: #001f3f;
 }
 
-/* Description text */
-.committee-description p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-/* Responsive */
+/* Responsive: stack committee content on tablet */
 @media (max-width: 900px) {
   .committee-content {
     flex-direction: column;
@@ -350,10 +600,156 @@ main {
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #001f3f;
-  text-align: left; /* force left alignment */
+  text-align: left; /* Force left alignment */
 }
 
-/* NEWSLETTER PAGE LAYOUT */
+/* ================= HISTORY PAGE ================= */
+.history-page {
+  max-width: 860px;
+  padding-top: 4rem;
+  padding-bottom: 4.5rem;
+}
+
+.history-body {
+  color: #334155;
+}
+
+.history-body p {
+  margin: 0 0 1rem 0;
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.history-body p:last-child {
+  margin-bottom: 0;
+}
+
+.history-body strong {
+  color: #001f3f;
+}
+
+.history-committee-list {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.history-committee-list li {
+  margin-bottom: 0.6rem;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.history-committee-list li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .history-page {
+    padding: 3rem 1rem 4rem 1rem;
+  }
+
+  .history-body p {
+    font-size: 1rem;
+  }
+}
+
+/* ================= SERVICES PAGE ================= */
+.services-page {
+  max-width: 900px;
+  padding-top: 4rem;
+  padding-bottom: 4.5rem;
+}
+
+.services-body h2,
+.services-body h3,
+.services-body h4 {
+  color: #001f3f;
+}
+
+.services-body h2 {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+}
+
+.services-body h3 {
+  margin: 2rem 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.services-body h4 {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.1rem;
+}
+
+.services-body p {
+  margin: 0 0 1rem 0;
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.services-people-list,
+.services-benefits-list,
+.services-schedule-group ul {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.services-people-list li,
+.services-benefits-list li,
+.services-schedule-group li {
+  margin-bottom: 0.75rem;
+  color: #334155;
+  line-height: 1.7;
+}
+
+.services-people-list li:last-child,
+.services-benefits-list li:last-child,
+.services-schedule-group li:last-child {
+  margin-bottom: 0;
+}
+
+.services-people-list span {
+  display: block;
+  color: #526274;
+}
+
+.services-location {
+  margin-bottom: 1.5rem;
+}
+
+.services-location p {
+  margin: 0;
+}
+
+.services-divider {
+  margin: 2.5rem 0;
+  border: none;
+  border-top: 1px solid rgba(0, 31, 63, 0.18);
+}
+
+.services-schedule {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .services-page {
+    padding: 3rem 1rem 4rem 1rem;
+  }
+
+  .services-body h2 {
+    font-size: 1.7rem;
+  }
+
+  .services-body p {
+    font-size: 1rem;
+  }
+}
+
+/* ================= NEWSLETTER PAGE ================= */
 .newsletter-layout {
   display: flex;
   gap: 2.5rem;
@@ -377,7 +773,7 @@ main {
 
 .newsletter-sidebar a {
   text-decoration: none;
-  color: rgba(0, 31, 63, 0.65); /* lighter text */
+  color: rgba(0, 31, 63, 0.65); /* Lighter sidebar link text */
   font-size: 1.05rem;
 }
 
@@ -408,7 +804,7 @@ main {
   margin: 0 0 1rem 0;
 }
 
-/* Responsive: stack on mobile */
+/* Responsive: stack newsletter columns on mobile */
 @media (max-width: 767px) {
   .newsletter-layout {
     flex-direction: column;
@@ -422,13 +818,14 @@ main {
 }
 
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 .footer {
   background: #001f3f;
   color: #ffffff;
   padding: 1.5rem 2rem;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .footer p {

@@ -1,6 +1,4 @@
-/* =========================
-   CAROUSEL (only if present)
-   ========================= */
+/* ================= CAROUSEL ================= */
 const track = document.getElementById("carouselTrack");
 const slides = document.querySelectorAll(".carousel-slide");
 const nextBtn = document.getElementById("nextSlide");
@@ -15,7 +13,7 @@ function updateCarousel() {
   track.style.transform = `translateX(-${index * 100}%)`;
 }
 
-/* Next / Prev */
+/* Advance to next or previous slide */
 function nextSlide() {
   if (!slides.length) return;
   index = (index + 1) % slides.length;
@@ -30,7 +28,7 @@ function prevSlide() {
   resetInterval();
 }
 
-/* Auto slide every 10 seconds */
+/* Auto-advance every 10 seconds */
 function startAutoSlide() {
   interval = setInterval(nextSlide, 10000);
 }
@@ -40,26 +38,35 @@ function resetInterval() {
   startAutoSlide();
 }
 
-/* Init carousel only if the elements exist */
+/* Initialize carousel only when required elements exist */
 if (track && slides.length && nextBtn && prevBtn) {
   nextBtn.addEventListener("click", nextSlide);
   prevBtn.addEventListener("click", prevSlide);
   startAutoSlide();
 }
 
-/* =========================
-   MOBILE NAV
-   ========================= */
+/* ================= MOBILE NAV ================= */
 const navToggle = document.getElementById("navToggle");
 const navClose = document.getElementById("navClose");
 const mobileNav = document.getElementById("mobileNav");
+const navDropdowns = document.querySelectorAll(".nav-dropdown");
+const navDropdownToggles = document.querySelectorAll(".nav-dropdown-toggle");
+const mobileNavDropdownToggles = document.querySelectorAll(".mobile-nav-dropdown-toggle");
+
+function closeDesktopDropdowns() {
+  navDropdowns.forEach((dropdown) => {
+    dropdown.classList.remove("open");
+    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+    if (toggle) toggle.setAttribute("aria-expanded", "false");
+  });
+}
 
 function openMobileNav() {
   if (!mobileNav || !navToggle) return;
   mobileNav.classList.add("open");
   navToggle.setAttribute("aria-expanded", "true");
   mobileNav.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden"; // prevent background scroll
+  document.body.style.overflow = "hidden"; /* Prevent background scroll */
 }
 
 function closeMobileNav() {
@@ -68,26 +75,66 @@ function closeMobileNav() {
   navToggle.setAttribute("aria-expanded", "false");
   mobileNav.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
+  document.querySelectorAll(".mobile-nav-dropdown").forEach((dropdown) => {
+    dropdown.classList.remove("open");
+  });
+  mobileNavDropdownToggles.forEach((toggle) => toggle.setAttribute("aria-expanded", "false"));
 }
 
 if (navToggle) navToggle.addEventListener("click", openMobileNav);
 if (navClose) navClose.addEventListener("click", closeMobileNav);
 
-// Close if user clicks the overlay background (outside the panel)
+navDropdownToggles.forEach((toggle) => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const dropdown = e.currentTarget.closest(".nav-dropdown");
+    if (!dropdown) return;
+
+    const isOpen = dropdown.classList.contains("open");
+    closeDesktopDropdowns();
+
+    if (!isOpen) {
+      dropdown.classList.add("open");
+      e.currentTarget.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+mobileNavDropdownToggles.forEach((toggle) => {
+  toggle.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const dropdown = e.currentTarget.closest(".mobile-nav-dropdown");
+    if (!dropdown) return;
+
+    const isOpen = dropdown.classList.toggle("open");
+    e.currentTarget.setAttribute("aria-expanded", String(isOpen));
+  });
+});
+
+/* Close menu when clicking the overlay background */
 if (mobileNav) {
   mobileNav.addEventListener("click", (e) => {
     if (e.target === mobileNav) closeMobileNav();
   });
 }
 
-// Close on Escape
+/* Close menu on Escape key */
 document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeDesktopDropdowns();
   if (e.key === "Escape" && mobileNav && mobileNav.classList.contains("open")) {
     closeMobileNav();
   }
 });
 
-// Close menu when a mobile link is clicked
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".nav-dropdown")) {
+    closeDesktopDropdowns();
+  }
+});
+
+/* Close menu when a mobile nav link is clicked */
 document.querySelectorAll(".mobile-nav-links a").forEach((a) => {
   a.addEventListener("click", closeMobileNav);
 });

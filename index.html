@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cultural Centre Of Florinians, O Aristotelis</title>
+    <title>Cultural Center Of Florinians, O Aristotelis</title>
 
-    <!-- Stylesheet -->
+    <!-- Styles & Scripts -->
     <link rel="stylesheet" href="style.css?v=1.1">
     <script src="script.js" defer></script>
 
@@ -13,6 +13,7 @@
 
 <body>
 
+    <!-- ================= HEADER / NAV ================= -->
     <header class="header">
         <nav class="navbar">
         <!-- Hamburger (mobile only) -->
@@ -29,7 +30,16 @@
             <li><a href="history.html">History</a></li>
             <li><a href="newsletter.html">Newsletter</a></li>
             <li><a href="events.html">Events</a></li>
-            <li><a href="apply.html">Apply!</a></li>
+            <li class="nav-dropdown">
+                <div class="nav-dropdown-trigger">
+                    <a class="nav-dropdown-link" href="apply.html">Our Services</a>
+                    <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
+                </div>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="apply.html#dance-group">Dance Group</a></li>
+                    <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+                </ul>
+            </li>
             <li><a href="gallery.html">Gallery</a></li>
         </ul>
 
@@ -43,7 +53,16 @@
                 <li><a href="history.html">History</a></li>
                 <li><a href="newsletter.html">Newsletter</a></li>
                 <li><a href="events.html">Events</a></li>
-                <li><a href="apply.html">Apply!</a></li>
+                <li class="mobile-nav-dropdown">
+                    <div class="mobile-nav-dropdown-header">
+                        <a class="mobile-nav-dropdown-link" href="apply.html">Our Services</a>
+                        <button class="mobile-nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
+                    </div>
+                    <ul class="mobile-nav-submenu">
+                        <li><a href="apply.html#dance-group">Dance Group</a></li>
+                        <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+                    </ul>
+                </li>
                 <li><a href="gallery.html">Gallery</a></li>
             </ul>
             </div>
@@ -52,11 +71,12 @@
 
     </header>
 
+    <!-- ================= MAIN CONTENT ================= -->
     <main>
         <section class="carousel">
             <div class="carousel-viewport" id="carouselViewport">
                 <div class="carousel-track" id="carouselTrack">
-                <!-- Order: History → Newsletter → Events → Apply -->
+                <!-- Slide order: History, Newsletter, Events, Apply, Gallery -->
                 <div class="carousel-slide">
                     <img src="History_slideshow_placeholder.png" alt="History">
                 </div>
@@ -74,7 +94,7 @@
                 </div>
                 </div>
 
-                <!-- Hover edge controls -->
+                <!-- Carousel edge controls -->
                 <button class="carousel-edge left" id="prevSlide" aria-label="Previous">
                 ‹
                 </button>
@@ -84,8 +104,86 @@
             </div>
         </section>
 
+
+
+        <section class="president-message" aria-labelledby="president-message-title">
+            <div class="president-message-card">
+                <p class="president-eyebrow">A message from our President</p>
+                <h1 id="president-message-title">Celebrating 70 Years of Heritage, Identity and Community</h1>
+
+                <div class="president-message-body">
+                    <p>
+                        As President of the Cultural Centre of Florinians “Aristotelis”, it is both an honour and a profound responsibility to lead our community as we celebrate 70 years of history, heritage and unity in 2026.
+                    </p>
+
+                    <p>
+                        What began as a gathering of migrants seeking connection in a new homeland has grown into a vibrant, intergenerational community that continues to thrive seven decades later.
+                    </p>
+
+                    <p>
+                        In the spirit of its founding members, we are committed to ensuring that we honour our elders, empower our youth and strengthen the bonds that unite us all.
+                    </p>
+
+                    <p>
+                        As we mark this significant milestone, I invite you to be part of our continuing journey, whether as a member, volunteer, supporter or friend.
+                    </p>
+
+                    <p>
+                        Together, we will ensure that the spirit of Florina continues to live proudly in Melbourne for generations to come.
+                    </p>
+
+                    <p>
+                        On behalf of the Committee, I thank you for your ongoing support and for being part of our story.
+                    </p>
+                </div>
+
+                <div class="president-signature">
+                    <p>With respect and pride,</p>
+                    <p class="president-name">Chrissy Georgiou</p>
+                    <p>President</p>
+                    <p>Cultural Centre of Florinians “Aristotelis”</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-us" aria-labelledby="about-us-title">
+            <h2 class="committee-title" id="about-us-title">About Us</h2>
+
+            <div class="about-us-body">
+                    <p>
+                        The Cultural Centre of Florinians “O Aristotelis” (the Cultural Centre) has proudly served Melbourne since 1956, preserving and promoting the rich Hellenic heritage of Florina, Greece.
+                    </p>
+
+                    <p>
+                        Established by early migrants from northern Greece, the Cultural Centre was founded on a deep desire to maintain cultural identity while building connection and belonging in a new homeland.
+                    </p>
+
+                    <p>
+                        Today, the Cultural Centre continues that vision by strengthening cultural pride within our community while fostering intercultural understanding within Melbourne’s diverse multicultural landscape.
+                    </p>
+
+                    <p>
+                        Our programs celebrate the traditions of Florina through traditional dance, folk music, singing, culinary workshops, textile crafts and children’s cultural activities.
+                    </p>
+
+                    <p>
+                        With more than 100 members across all generations, the Cultural Centre provides opportunities for young people, families and seniors to learn, participate and connect.
+                    </p>
+
+                    <p>
+                        We offer weekly senior gatherings to support wellbeing and social connection through shared meals, conversation and cultural storytelling. We offer youth dance lessons and events to encourage the next generation to develop pride in their heritage and share this confidence in their cultural identity.
+                    </p>
+
+                    <p>
+                        For almost seven decades, the Cultural Centre of Florinians “Aristotelis” has remained dedicated to preserving traditions, strengthening community bonds and ensuring that the culture of Florina continues to thrive in Melbourne for generations to come.
+                    </p>
+                </div>
+        </section>
+
+
         <section class="committee">
-            <h2 class="committee-title">Meet the Committee</h2>
+            <h2 class="committee-title">Our Leadership</h2>
+            <p class="committee-intro">As we celebrate 70 years, we acknowledge the dedicated leadership guiding our Cultural Centre into its next chapter</p>
 
             <div class="committee-content">
                 <div class="committee-image">
@@ -93,35 +191,26 @@
                 </div>
 
                 <div class="committee-list">
+                <h3 class="committee-list-title">Current Committee</h3>
                 <ul>
                     <li><strong>President:</strong> Chrissy Georgiou</li>
                     <li><strong>Vice President:</strong> Anne-Marie Tsiounis</li>
-                    <li><strong>Vice President:</strong> John Aidonidis</li>
-                    <li><strong>Treasurer:</strong> Chris Klinkatsis</li>
-                    <li><strong>Treasurer:</strong> Vickie Lamprou-Hatt</li>
-                    <li><strong>Dance Group Liaison Officer:</strong> Nektaria Gassin</li>
-                    <li><strong>Dance Group Liaison Officer:</strong> Anna Aidonidis</li>
                     <li><strong>Secretary:</strong> Nicoleta Romas</li>
+                    <li><strong>Assistant Secretary:</strong> Vickie Lamprou-Hatt</li>
+                    <li><strong>Treasurer:</strong> Chris Klinkatsis</li>
+                    <li><strong>Assistant Treasurer:</strong> John Aidonidis</li>
+                    <li><strong>Dance Group Liaison Officer:</strong> Nektaria Gassin</li>
+                    <li><strong>Public Relations Officer:</strong> George Katsakis</li>
+                    <li><strong>General Committee Member:</strong> Anna Aidonidis</li>
                 </ul>
                 </div>
-            </div>
-
-            <div class="committee-description">
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue.
-                Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
-                </p>
-
-                <p>
-                Ut velit mauris, egestas sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue. Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi vel erat non mauris convallis vehicula.
-
-                Nullam in sapien. Integer tortor tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus, et tristique ligula justo vitae magna. Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet.
-                </p>
             </div>
         </section>
     </main>
 
+    <!-- ================= FOOTER ================= -->
     <footer class="footer">
-        <p>&copy; <span id="year">Est. 1956</span> Cultural Centre. All rights reserved.
-
-
+        <p>&copy; <span id="year">Est. 1956</span> Cultural Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>
