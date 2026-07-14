@@ -3,29 +3,38 @@ const track = document.getElementById("carouselTrack");
 const slides = document.querySelectorAll(".carousel-slide");
 const nextBtn = document.getElementById("nextSlide");
 const prevBtn = document.getElementById("prevSlide");
+const carouselViewport = document.getElementById("carouselViewport");
+const dots = document.querySelectorAll(".carousel-dot");
 
 let index = 0;
 let interval;
 
-/* Update slide position */
+/* Update slide position and dot indicators */
 function updateCarousel() {
   if (!track) return;
   track.style.transform = `translateX(-${index * 100}%)`;
+
+  dots.forEach((dot, i) => {
+    const isActive = i === index;
+    dot.classList.toggle("active", isActive);
+    dot.setAttribute("aria-selected", String(isActive));
+  });
+}
+
+function goToSlide(targetIndex) {
+  if (!slides.length) return;
+  index = ((targetIndex % slides.length) + slides.length) % slides.length;
+  updateCarousel();
+  resetInterval();
 }
 
 /* Advance to next or previous slide */
 function nextSlide() {
-  if (!slides.length) return;
-  index = (index + 1) % slides.length;
-  updateCarousel();
-  resetInterval();
+  goToSlide(index + 1);
 }
 
 function prevSlide() {
-  if (!slides.length) return;
-  index = (index - 1 + slides.length) % slides.length;
-  updateCarousel();
-  resetInterval();
+  goToSlide(index - 1);
 }
 
 /* Auto-advance every 10 seconds */
@@ -38,10 +47,28 @@ function resetInterval() {
   startAutoSlide();
 }
 
+function stopAutoSlide() {
+  clearInterval(interval);
+}
+
 /* Initialize carousel only when required elements exist */
 if (track && slides.length && nextBtn && prevBtn) {
   nextBtn.addEventListener("click", nextSlide);
   prevBtn.addEventListener("click", prevSlide);
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      goToSlide(Number(dot.dataset.slide));
+    });
+  });
+
+  if (carouselViewport) {
+    carouselViewport.addEventListener("mouseenter", stopAutoSlide);
+    carouselViewport.addEventListener("mouseleave", startAutoSlide);
+    carouselViewport.addEventListener("focusin", stopAutoSlide);
+    carouselViewport.addEventListener("focusout", startAutoSlide);
+  }
+
   startAutoSlide();
 }
 

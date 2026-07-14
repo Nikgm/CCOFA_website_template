@@ -81,34 +81,52 @@
 
     <!-- ================= MAIN CONTENT ================= -->
     <main>
-        <section class="carousel">
+        <section class="carousel" aria-label="Site highlights">
             <div class="carousel-viewport" id="carouselViewport">
                 <div class="carousel-track" id="carouselTrack">
-                <!-- Slide order: History, Newsletter, Events, Apply, Gallery -->
+                <!-- Slide order matches nav: History, Newsletter, Events, Our Services, Gallery -->
                 <div class="carousel-slide">
-                    <img src="History_slideshow.png" alt="History">
+                    <a href="history.html">
+                        <img src="History_slideshow.png" alt="History">
+                    </a>
                 </div>
                 <div class="carousel-slide">
-                    <img src="Newsletter_slideshow.png" alt="Newsletter">
+                    <a href="newsletter.html">
+                        <img src="Newsletter_slideshow.png" alt="Newsletter">
+                    </a>
                 </div>
                 <div class="carousel-slide">
-                    <img src="Events_slideshow.png" alt="Events">
+                    <a href="events.html">
+                        <img src="Events_slideshow.png" alt="Events">
+                    </a>
                 </div>
                 <div class="carousel-slide">
-                    <img src="Apply_slideshow.png" alt="Apply">
+                    <a href="apply.html">
+                        <img src="Apply_slideshow.png" alt="Our Services">
+                    </a>
                 </div>
                 <div class="carousel-slide">
-                    <img src="Gallery_slideshow.png" alt="Gallery">
+                    <a href="gallery.html">
+                        <img src="Gallery_slideshow.png" alt="Gallery">
+                    </a>
                 </div>
                 </div>
 
                 <!-- Carousel edge controls -->
-                <button class="carousel-edge left" id="prevSlide" aria-label="Previous">
+                <button class="carousel-edge left" id="prevSlide" aria-label="Previous slide">
                 ‹
                 </button>
-                <button class="carousel-edge right" id="nextSlide" aria-label="Next">
+                <button class="carousel-edge right" id="nextSlide" aria-label="Next slide">
                 ›
                 </button>
+            </div>
+
+            <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Carousel sections">
+                <button class="carousel-dot active" type="button" data-slide="0" role="tab" aria-label="History" aria-selected="true"></button>
+                <button class="carousel-dot" type="button" data-slide="1" role="tab" aria-label="Newsletter" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="2" role="tab" aria-label="Events" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="3" role="tab" aria-label="Our Services" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="4" role="tab" aria-label="Gallery" aria-selected="false"></button>
             </div>
         </section>
 

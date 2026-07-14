@@ -204,11 +204,46 @@ main {
   user-select: none;
 }
 
+.carousel-slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.875rem 0 0.25rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #c5ccd6;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-dot:hover,
+.carousel-dot:focus-visible {
+  background: #5a6b82;
+  outline: none;
+}
+
+.carousel-dot.active {
+  background: #001f3f;
+  transform: scale(1.15);
 }
 
 /* Carousel edge hover areas */
