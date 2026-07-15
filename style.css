@@ -455,13 +455,13 @@ main {
 
 /* ================= PRESIDENT MESSAGE ================= */
 .president-message {
-  max-width: 1440px;
+  max-width: 900px;
   margin: 56px auto 24px auto;
   padding: 0 2rem;
 }
 
 .president-message-card {
-  max-width: 1100px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 3rem;
   background: #ffffff;
@@ -564,7 +564,7 @@ main {
 
 /* ================= ABOUT US ================= */
 .about-us {
-  max-width: 1440px;
+  max-width: 900px;
   margin: 40px auto 80px auto;
   padding: 0 2rem;
 }
@@ -584,7 +584,7 @@ main {
 /* ================= OUR LEADERSHIP ================= */
 
 .committee {
-  max-width: 1440px;
+  max-width: 900px;
   margin: 40px auto 80px auto; 
   padding: 0 2rem;
 }
@@ -668,7 +668,7 @@ main {
 
 /* ================= HISTORY PAGE ================= */
 .history-page {
-  max-width: 860px;
+  max-width: 900px;
   padding-top: 4rem;
   padding-bottom: 4.5rem;
 }
@@ -798,6 +798,50 @@ main {
   margin-bottom: 1.5rem;
 }
 
+.services-image {
+  margin: 0 0 1.5rem 0;
+}
+
+.services-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.services-split {
+  display: flex;
+  align-items: stretch;
+  gap: 2rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.services-split .services-benefits-list {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+}
+
+.services-split-image {
+  position: relative;
+  flex: 0 0 220px;
+  width: 220px;
+  margin-left: auto;
+  align-self: stretch;
+}
+
+.services-split-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 767px) {
   .services-page {
     padding: 3rem 1rem 4rem 1rem;
@@ -809,6 +853,26 @@ main {
 
   .services-body p {
     font-size: 1rem;
+  }
+
+  .services-split {
+    flex-direction: column;
+  }
+
+  .services-split-image {
+    position: static;
+    flex: none;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .services-split-image img {
+    position: static;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-left: auto;
+    margin-right: 0;
   }
 }
 
