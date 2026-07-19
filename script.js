@@ -165,3 +165,49 @@ document.addEventListener("click", (e) => {
 document.querySelectorAll(".mobile-nav-links a").forEach((a) => {
   a.addEventListener("click", closeMobileNav);
 });
+
+/* ================= FLYER MODAL ================= */
+const flyerLinks = document.querySelectorAll(".flyer-link");
+const flyerModal = document.getElementById("flyerModal");
+const flyerModalClose = document.getElementById("flyerModalClose");
+const flyerModalImg = flyerModal ? flyerModal.querySelector("img") : null;
+
+function openFlyerModal(src, alt) {
+  if (!flyerModal) return;
+  if (flyerModalImg && src) {
+    flyerModalImg.src = src;
+    flyerModalImg.alt = alt || "Event flyer";
+  }
+  flyerModal.classList.add("open");
+  flyerModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden"; /* Prevent background scroll */
+}
+
+function closeFlyerModal() {
+  if (!flyerModal) return;
+  flyerModal.classList.remove("open");
+  flyerModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+if (flyerLinks.length && flyerModal) {
+  flyerLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      openFlyerModal(link.getAttribute("href"), link.dataset.flyerAlt);
+    });
+  });
+
+  if (flyerModalClose) flyerModalClose.addEventListener("click", closeFlyerModal);
+
+  /* Close when clicking anywhere outside the photo */
+  flyerModal.addEventListener("click", (e) => {
+    if (e.target === flyerModal) closeFlyerModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && flyerModal.classList.contains("open")) {
+      closeFlyerModal();
+    }
+  });
+}

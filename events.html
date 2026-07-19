@@ -12,7 +12,7 @@
   <meta property="og:image:alt" content="Cultural Centre of Florinians Aristotelis logo">
 
   <!-- Styles & Scripts -->
-  <link rel="stylesheet" href="style.css?v=1.1">
+  <link rel="stylesheet" href="style.css?v=1.2">
   <script src="script.js" defer></script>
 </head>
 
@@ -40,20 +40,21 @@
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="history.html">History</a></li>
-        <li><a href="newsletter.html">Newsletter</a></li>
         <li><a href="events.html">Events</a></li>
         <li class="nav-dropdown">
           <div class="nav-dropdown-trigger">
-            <a class="nav-dropdown-link" href="apply.html">Our Services</a>
+            <a class="nav-dropdown-link" href="services.html">Our Services</a>
             <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
           </div>
           <ul class="nav-dropdown-menu">
-            <li><a href="apply.html#dance-group">Dance Group</a></li>
-            <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+            <li><a href="services.html#dance-group">Dance Group</a></li>
+            <li><a href="services.html#youth-group">Youth Group</a></li>
+            <li><a href="services.html#senior-citizens-club">Senior Citizens Club</a></li>
           </ul>
         </li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="sponsorship.html">Sponsorship</a></li>
+        <li><a href="why-join-us.html">Why Join Us</a></li>
       </ul>
 
       <!-- Mobile overlay -->
@@ -69,20 +70,21 @@
           <ul class="mobile-nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="history.html">History</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
             <li><a href="events.html">Events</a></li>
             <li class="mobile-nav-dropdown">
               <div class="mobile-nav-dropdown-header">
-                <a class="mobile-nav-dropdown-link" href="apply.html">Our Services</a>
+                <a class="mobile-nav-dropdown-link" href="services.html">Our Services</a>
                 <button class="mobile-nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
               </div>
               <ul class="mobile-nav-submenu">
-                <li><a href="apply.html#dance-group">Dance Group</a></li>
-                <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+                <li><a href="services.html#dance-group">Dance Group</a></li>
+                <li><a href="services.html#youth-group">Youth Group</a></li>
+                <li><a href="services.html#senior-citizens-club">Senior Citizens Club</a></li>
               </ul>
             </li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="sponsorship.html">Sponsorship</a></li>
+            <li><a href="why-join-us.html">Why Join Us</a></li>
           </ul>
         </div>
       </div>
@@ -101,35 +103,49 @@
       </p>
       <p>
         For the latest updates and event announcements, we encourage you to follow our social
-        media pages on Facebook, Instagram and TikTok, or download our most recent newsletter.
+        media pages on Facebook, Instagram and TikTok.
       </p>
     
       <div>
         <b><u>Come see our Dance Group Perform</u></b>
-        <p>Sunday, February 1st, 2026 - St. Vasilios Festival, Brunswick</p>
-        <p>Inters / Seniors @ 2:30 PM</p><hr>
-        <p>Sunday, February 15th, 2026 - St. Haralambos Festival, Templestowe</p>
-        <p>Inters @ 2:30 PM</p><hr>
-        <p>Saturday & Sunday, February 28th & March 1st, 2026 - Antipodes Festival, Lonsdale St.</p>
-        <p>Saturday, Inters @ 5:55 PM / Seniors @ 6:10 PM</p><hr>
+        <p>Sunday, July 26, 2026 - St. Paraskevi Church, St. Albans (My Big Fat Greek Festival)</p>
+        <p>All Groups @ 12:00 PM</p><hr>
+        <p>Sunday, 16th August 2026 - Greek Orthodox Parish of Panagia Soumela Keilor East (Dekapentaugousto Festival)</p>
+        <p>Inters / Seniors @ TBD</p><hr>
+        <p>Sunday, August 23, 2026 - Axion Esti Monastary (Northcote Festival)</p>
+        <p>All Groups @ TBD</p><hr>
       </div>
-      <div>
+      <div style="margin-top: 3rem;">
         <b><u>Events We're Hosting</u></b><br>
         <p>
-          Folkgrooves 2026 - <span class="event-pending">Date Pending</span> - St John's College, Preston
+          Fathers Day Kafeneio - Saturday, 12th September 2026
+        </p>
+        <p>
+          <a href="fathers_day_kafeneio_flyer.png" class="flyer-link" id="kafeneioFlyerLink" data-flyer-alt="Fathers Day Kafeneio flyer">See Flyer for Details (CLICK HERE)</a>
+        </p><hr>
+        <p>
+          Folkgrooves 2026 - September 20th, 2026 - St John's College, Preston
         </p>
         <p>Free entry - No ticket needed</p><hr>
         <p>
-          2026 Dinner Dance Gala - 14 November, 2026 - <span class="event-pending">Location Pending</span>
+          70th Anniversary Gala Dinner Dance - 14 November, 2026 - <span class="event-pending">Location Pending</span>
         </p>
-        <p>Watch socials for when tickets are on sale</p>
+        <p>Watch socials for when tickets are on sale - <a href="gala_dinner_dance_flyer.jpg" class="flyer-link" data-flyer-alt="70th Anniversary Gala Dinner Dance flyer">See Flyer</a></p>
       </div>
     </section>
   </main>
 
+  <!-- ================= FLYER MODAL ================= -->
+  <div class="flyer-modal" id="flyerModal" aria-hidden="true">
+    <div class="flyer-modal-content" role="dialog" aria-modal="true" aria-label="Event Flyer">
+      <button class="flyer-modal-close" id="flyerModalClose" aria-label="Close flyer">&times;</button>
+      <img src="fathers_day_kafeneio_flyer.png" alt="Fathers Day Kafeneio flyer">
+    </div>
+  </div>
+
   <!-- ================= FOOTER ================= -->
   <footer class="footer">
-    <p>&copy; <span id="year">Est. 1956</span> Cultural Centre. All rights reserved. · <a href="sponsorship.html#contact-us">Contact us</a></p>
+    <p>&copy; <span id="year">Est. 1956</span> Cultural Centre. All rights reserved. · <a href="why-join-us.html#contact-us">Contact us</a></p>
   </footer>
 
 </body>

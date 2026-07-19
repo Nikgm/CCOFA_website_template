@@ -778,6 +778,36 @@ main {
   color: #526274;
 }
 
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.social-links a {
+  display: inline-flex;
+  transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.7;
+}
+
+.social-links img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* The TikTok logo has built-in transparent padding, so render it
+   larger to visually match the other icons without extra spacing */
+.social-links img[alt="TikTok"] {
+  width: 72px;
+  height: 72px;
+  margin: -12px;
+}
+
 .services-location {
   margin-bottom: 1.5rem;
 }
@@ -789,7 +819,40 @@ main {
 .services-divider {
   margin: 2.5rem 0;
   border: none;
-  border-top: 1px solid rgba(0, 31, 63, 0.18);
+  height: 4px;
+  background-color: #032f59;
+  /* Taper the line into a lens shape: thin at the ends, thickest in the center */
+  -webkit-mask-image: radial-gradient(ellipse 18% 100% at 50% 50%, #000 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 18% 100% at 50% 50%, #000 45%, transparent 100%);
+}
+
+.sponsor-card {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.sponsor-logo {
+  display: block;
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1rem auto;
+}
+
+.sponsor-card .sponsor-links {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.05rem;
+}
+
+.sponsor-card .sponsor-links a {
+  color: #032f59;
+  font-weight: 600;
+}
+
+.sponsor-card .sponsor-address {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #64748b;
 }
 
 .services-schedule {
@@ -877,80 +940,88 @@ main {
   }
 }
 
-/* ================= NEWSLETTER PAGE ================= */
-.newsletter-layout {
-  display: flex;
-  gap: 2.5rem;
-  align-items: flex-start;
-}
-
-.newsletter-sidebar {
-  width: 280px;
-  flex: 0 0 280px;
-}
-
-.newsletter-sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.newsletter-sidebar li {
-  margin-bottom: 0.85rem;
-}
-
-.newsletter-sidebar a {
-  text-decoration: none;
-  color: rgba(0, 31, 63, 0.65); /* Lighter sidebar link text */
-  font-size: 1.05rem;
-}
-
-.newsletter-sidebar a:hover {
-  text-decoration: underline;
-}
-
-.newsletter-sidebar a.current {
-  color: #001f3f;
-  font-weight: 700;
-}
-
-.newsletter-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.newsletter-date-title {
-  font-weight: 700;
-  color: #001f3f;
-  margin: 0 0 1.25rem 0;
-  font-size: 1.6rem;
-}
-
-.newsletter-content p {
-  line-height: 1.7;
-  color: #333;
-  margin: 0 0 1rem 0;
-}
-
-/* Responsive: stack newsletter columns on mobile */
-@media (max-width: 767px) {
-  .newsletter-layout {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .newsletter-sidebar {
-    width: 100%;
-    flex: 0 0 auto;
-  }
-}
-
 
 /* ================= EVENTS PAGE ================= */
 
 .event-pending {
   color: #c0392b;
   font-weight: 600;
+}
+
+.flyer-link {
+  color: #001f3f;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.flyer-link:hover {
+  color: #c0392b;
+}
+
+
+/* ================= FLYER MODAL ================= */
+
+.flyer-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.flyer-modal.open {
+  display: flex;
+}
+
+.flyer-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.flyer-modal-content img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.flyer-modal-close {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #001f3f;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flyer-modal-close:hover {
+  background: #c0392b;
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .flyer-modal-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 }
 
 

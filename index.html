@@ -12,7 +12,7 @@
     <meta property="og:image:alt" content="Cultural Centre of Florinians Aristotelis logo">
 
     <!-- Styles & Scripts -->
-    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="style.css?v=1.2">
     <script src="script.js" defer></script>
 
 </head>
@@ -34,20 +34,21 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="history.html">History</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
             <li><a href="events.html">Events</a></li>
             <li class="nav-dropdown">
                 <div class="nav-dropdown-trigger">
-                    <a class="nav-dropdown-link" href="apply.html">Our Services</a>
+                    <a class="nav-dropdown-link" href="services.html">Our Services</a>
                     <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
                 </div>
                 <ul class="nav-dropdown-menu">
-                    <li><a href="apply.html#dance-group">Dance Group</a></li>
-                    <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+                    <li><a href="services.html#dance-group">Dance Group</a></li>
+                    <li><a href="services.html#youth-group">Youth Group</a></li>
+                    <li><a href="services.html#senior-citizens-club">Senior Citizens Club</a></li>
                 </ul>
             </li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="sponsorship.html">Sponsorship</a></li>
+            <li><a href="why-join-us.html">Why Join Us</a></li>
         </ul>
 
         <!-- Mobile overlay -->
@@ -58,20 +59,21 @@
             <ul class="mobile-nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="history.html">History</a></li>
-                <li><a href="newsletter.html">Newsletter</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li class="mobile-nav-dropdown">
                     <div class="mobile-nav-dropdown-header">
-                        <a class="mobile-nav-dropdown-link" href="apply.html">Our Services</a>
+                        <a class="mobile-nav-dropdown-link" href="services.html">Our Services</a>
                         <button class="mobile-nav-dropdown-toggle" type="button" aria-expanded="false" aria-label="Open Our Services menu"></button>
                     </div>
                     <ul class="mobile-nav-submenu">
-                        <li><a href="apply.html#dance-group">Dance Group</a></li>
-                        <li><a href="apply.html#senior-citizens-club">Senior Citizens Club</a></li>
+                        <li><a href="services.html#dance-group">Dance Group</a></li>
+                        <li><a href="services.html#youth-group">Youth Group</a></li>
+                        <li><a href="services.html#senior-citizens-club">Senior Citizens Club</a></li>
                     </ul>
                 </li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="sponsorship.html">Sponsorship</a></li>
+                <li><a href="why-join-us.html">Why Join Us</a></li>
             </ul>
             </div>
         </div>
@@ -84,15 +86,10 @@
         <section class="carousel" aria-label="Site highlights">
             <div class="carousel-viewport" id="carouselViewport">
                 <div class="carousel-track" id="carouselTrack">
-                <!-- Slide order matches nav: History, Newsletter, Events, Our Services, Gallery -->
+                <!-- Slide order matches nav: History, Events, Our Services, Gallery, Sponsorship, Why Join Us -->
                 <div class="carousel-slide">
                     <a href="history.html">
                         <img src="History_slideshow.png" alt="History">
-                    </a>
-                </div>
-                <div class="carousel-slide">
-                    <a href="newsletter.html">
-                        <img src="Newsletter_slideshow.png" alt="Newsletter">
                     </a>
                 </div>
                 <div class="carousel-slide">
@@ -101,13 +98,23 @@
                     </a>
                 </div>
                 <div class="carousel-slide">
-                    <a href="apply.html">
-                        <img src="Apply_slideshow.png" alt="Our Services">
+                    <a href="services.html">
+                        <img src="Services_slideshow.png" alt="Our Services">
                     </a>
                 </div>
                 <div class="carousel-slide">
                     <a href="gallery.html">
                         <img src="Gallery_slideshow.png" alt="Gallery">
+                    </a>
+                </div>
+                <div class="carousel-slide">
+                    <a href="sponsorship.html">
+                        <img src="Sponsorship_slideshow.png" alt="Sponsorship">
+                    </a>
+                </div>
+                <div class="carousel-slide">
+                    <a href="why-join-us.html">
+                        <img src="why_join_us_slideshow.png" alt="Why Join Us">
                     </a>
                 </div>
                 </div>
@@ -123,10 +130,11 @@
 
             <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Carousel sections">
                 <button class="carousel-dot active" type="button" data-slide="0" role="tab" aria-label="History" aria-selected="true"></button>
-                <button class="carousel-dot" type="button" data-slide="1" role="tab" aria-label="Newsletter" aria-selected="false"></button>
-                <button class="carousel-dot" type="button" data-slide="2" role="tab" aria-label="Events" aria-selected="false"></button>
-                <button class="carousel-dot" type="button" data-slide="3" role="tab" aria-label="Our Services" aria-selected="false"></button>
-                <button class="carousel-dot" type="button" data-slide="4" role="tab" aria-label="Gallery" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="1" role="tab" aria-label="Events" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="2" role="tab" aria-label="Our Services" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="3" role="tab" aria-label="Gallery" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="4" role="tab" aria-label="Sponsorship" aria-selected="false"></button>
+                <button class="carousel-dot" type="button" data-slide="5" role="tab" aria-label="Why Join Us" aria-selected="false"></button>
             </div>
         </section>
 
@@ -242,7 +250,7 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
-        <p>&copy; <span id="year">Est. 1956</span> Cultural Center. All rights reserved. · <a href="sponsorship.html#contact-us">Contact us</a></p>
+        <p>&copy; <span id="year">Est. 1956</span> Cultural Center. All rights reserved. · <a href="why-join-us.html#contact-us">Contact us</a></p>
     </footer>
 </body>
 </html>
